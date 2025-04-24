@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 p, .box2 p, .box3 p, .box4 p, .box1 pre, .box2 pre, .box3 pre, .box4 pre 
+        {
+            display:none;
+        }
+        .box1:hover>p, .box2:hover>p, .box3:hover>p, .box4:hover>p, .box1:hover>pre, .box2:hover>pre, .box3:hover>pre, .box4:hover>pre
+        {
+            display:block;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Combinator Selectors</h1>
+    <div class="box1">
+        <h2>1)Descendant Selector</h2>
+        <p>It applies styles to all descendants (children, grandchildren, great-grandchildren, etc.) of a specified element.</p>
+        <p>Example: </p>
+        <pre>
+            html
+            < div >
+            < p >This will be red< /p >
+               < div >
+                    < p >This will be red< /p >
+               < /div >
+            < /div >
+            < p >This will not be red< /p >
+
+            Css
+            div p 
+              {
+                color: red;
+              }
+        </pre>
+    </div>
+    <div class="box2">
+        <h2>2)Child Selector</h2>
+        <p>It only selects elements that are one level down in the hierarchy from the specified parent.</p>
+        <p>Example:</p>
+        <pre>
+               html
+               < ul >
+                  < li >Direct child – styled green< /li >
+                  < li >
+                    < ul >
+                        < li >Nested child – NOT styled< /li >
+                    < /ul >
+                  < /li >
+              < /ul >
+
+              Css
+              ul > li
+               {
+                color: green;
+               }
+        </pre>
+    </div>
+    <div class="box3">
+        <h2>3) Adjacent Sibling Selector</h2>
+        <p>Selects an element that is immediately next to a specified element (must share the same parent).</p>
+        <p>Example:</p>
+        <pre>
+            Html
+            < h2 >Heading< /h2 >
+            < p >Styled paragraph< /p >
+            < p >Not styled< /p >
+
+            Css 
+            h2 + p 
+              {
+                color: red;
+              }
+        </pre>
+    </div>
+    <div class="box4">
+        <h2>4)General Sibling Selector</h2>
+        <p>Selects all siblings that come after a specified element (not just the next one).</p>
+        <p>Example:</p>
+        <pre>
+
+            Html 
+            < h2 >Heading< /h2 >
+            < p >Styled paragraph< /p >
+            < p >Also styled< /p >
+
+            Css 
+            h2 ~ p 
+            {
+                color: purple;
+            }
+        </pre>
+    </div>
+            
+</body>
+</html>
